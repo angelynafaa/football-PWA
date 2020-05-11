@@ -1,4 +1,4 @@
-const CACHE_NAME = 'firstpwa-v11';
+const CACHE_NAME = 'firstpwa-v13';
 var urlsToCache = [
 	'/',
 	'/nav.html',
@@ -6,8 +6,13 @@ var urlsToCache = [
 	'/pages/home.html',
 	'/pages/syarat.html',
 	'/pages/daftar.html',
+	'/pages/jenisHewan.html',
 	'/css/materialize.min.css',
 	'/js/materialize.min.js',
+	'/pic/qurban.jpg',
+	'/pic/syarat.jpg',
+	'/icon.png',
+	'/manifest.json',
 	'/js/nav.js'
 ];
 
