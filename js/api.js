@@ -322,3 +322,86 @@ function insertFav(id, name, image) {
     favB.classList.add("pink");
   });
 }
+
+function getMatches() {
+  if ("caches" in window){
+    caches.match(match).then(function(response){
+      if (response){
+        response.json().then(function(data){
+          var matchDetail = '';
+      data.matches.forEach(function(mtch){
+        matchDetail += `
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-content">
+              <p><b>Matchday ${mtch.matchday} of 38</b></p>
+              <table class="responsive-table">
+                  <tbody>
+                    <tr>
+                      <td>${mtch.homeTeam.name}</td>  
+                      <td>${mtch.score.fullTime.homeTeam}</td>
+                      <td rowspan="2" class="center">${dmy(new Date(mtch.utcDate))}</td> 
+                    </tr>
+                    <tr>
+                      <td>${mtch.awayTeam.name}</td>
+                      <td>${mtch.score.fullTime.awayTeam}</td>
+                    </tr>
+                  </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        `;
+      });
+      matchHTML = `
+        <div class="row">
+                ` + matchDetail + `
+        </div>
+      `;
+      document.getElementById("body-content").innerHTML = matchHTML;
+        })
+      }
+    })
+  }
+  fetch(match,{headers : {'X-Auth-Token' : API}})
+    .then(status)
+    .then(json)
+    .then(function(data) {
+      console.log(data);
+      var matchDetail = '';
+      data.matches.forEach(function(mtch){
+        matchDetail += `
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-content">
+              <p><b>Matchday ${mtch.matchday} of 38</b></p>
+              <table class="responsive-table">
+                  <tbody>
+                    <tr>
+                      <td>${mtch.homeTeam.name}</td>  
+                      <td>${mtch.score.fullTime.homeTeam}</td>
+                      <td rowspan="2" class="center">${dmy(new Date(mtch.utcDate))}</td> 
+                    </tr>
+                    <tr>
+                      <td>${mtch.awayTeam.name}</td>
+                      <td>${mtch.score.fullTime.awayTeam}</td>
+                    </tr>
+                  </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        `;
+      });
+      matchHTML = `
+        <div class="row">
+                ` + matchDetail + `
+        </div>
+      `;
+      document.getElementById("body-content").innerHTML = matchHTML;
+    })
+    .catch(error);
+}
+function dmy (date){
+  return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+}
