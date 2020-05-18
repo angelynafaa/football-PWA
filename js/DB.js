@@ -1,4 +1,4 @@
-const idbPromised = idb.open("fav", 1 , upgradeDb =>{
+const idbPromised =idb.open("favourites", 1 , upgradeDb =>{
     if(!upgradeDb.objectStoreNames.contains("favor")){
         upgradeDb.createObjectStore("favor", {keyPath: "favId"});
     }

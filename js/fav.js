@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     function showAllFavourite() {
-      dbGetAllFavourites().then(fav => {
+        dbGetAllFavourites().then(favourites => {
         let listFavouritesInText = "";
-        fav.forEach(fav => {
+        favourites.forEach(fav => {
           listFavouritesInText += `
               <tr>
                 <td class="valign-wrapper">

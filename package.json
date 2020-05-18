@@ -1,0 +1,22 @@
+{
+  "name": "yukngebola",
+  "version": "1.0.0",
+  "description": "submission MPWA-2",
+  "main": "push.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angelynafaa/Qurban-PWA.git"
+  },
+  "author": "angelynafaa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/angelynafaa/Qurban-PWA/issues"
+  },
+  "homepage": "https://github.com/angelynafaa/Qurban-PWA#readme",
+  "devDependencies": {
+    "web-push": "^3.4.4"
+  }
+}
