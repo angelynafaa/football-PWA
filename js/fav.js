@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function() {
               `;
         });
         document.getElementById('teams').innerHTML = listFavouritesInText;
-  
         let removeButtons = document.querySelectorAll(".removeButton");
         for (let button of removeButtons) {
           button.addEventListener("click", function(event) {

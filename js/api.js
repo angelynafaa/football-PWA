@@ -15,12 +15,10 @@ function status(response) {
     return Promise.resolve(response);
   }
 }
-
 // Blok kode untuk memparsing json menjadi array JavaScript
 function json(response) {
   return response.json();
 }
-
 // Blok kode untuk meng-handle kesalahan di blok catch
 function error(error) {
   // Parameter error berasal dari Promise.reject()
@@ -323,84 +321,96 @@ function insertFav(id, name, image) {
   });
 }
 
-function getMatches() {
-  if ("caches" in window){
-    caches.match(match).then(function(response){
+
+function getMatches(){
+  if("caches" in window){
+    caches
+    .match(`${base_url}competitions/${id_liga}/matches`)
+    .then(function(response){
       if (response){
         response.json().then(function(data){
-          var matchDetail = '';
-      data.matches.forEach(function(mtch){
-        matchDetail += `
-        <div class="col s12 m6">
-          <div class="card">
-            <div class="card-content">
-              <p><b>Matchday ${mtch.matchday} of 38</b></p>
-              <table class="responsive-table">
-                  <tbody>
-                    <tr>
-                      <td>${mtch.homeTeam.name}</td>  
-                      <td>${mtch.score.fullTime.homeTeam}</td>
-                      <td rowspan="2" class="center">${dmy(new Date(mtch.utcDate))}</td> 
-                    </tr>
-                    <tr>
-                      <td>${mtch.awayTeam.name}</td>
-                      <td>${mtch.score.fullTime.awayTeam}</td>
-                    </tr>
-                  </tbody>
-              </table>
+          var matchDetail="";
+          data.matches.forEach(function(match){
+            matchDetail +=`
+          <div class="col s12 m6">
+            <div class="card">
+              <div class="card-content" >
+                <p><b>Matchday ${match.matchday} of 38</b></p>
+                <table class="responsive-table">
+                    <tbody>
+                      <tr>
+                        <td>${match.homeTeam.name}</td>  
+                        <td>${match.score.fullTime.homeTeam}</td>
+                        <td rowspan="2" class="center">${dmy(new Date(match.utcDate))}</td> 
+                      </tr>
+                      <tr>
+                        <td>${match.awayTeam.name}</td>
+                        <td>${match.score.fullTime.awayTeam}</td>
+                      </tr>
+                    </tbody>
+                </table>
+              </div>
             </div>
-          </div>
-        </div>
-        `;
-      });
-      matchHTML = `
-        <div class="row">
-                ` + matchDetail + `
-        </div>
-      `;
-      document.getElementById("body-content").innerHTML = matchHTML;
-        })
-      }
-    })
-  }
-  fetch(match,{headers : {'X-Auth-Token' : API}})
-    .then(status)
-    .then(json)
-    .then(function(data) {
-      console.log(data);
-      var matchDetail = '';
-      data.matches.forEach(function(mtch){
-        matchDetail += `
-        <div class="col s12 m6">
-          <div class="card">
-            <div class="card-content">
-              <p><b>Matchday ${mtch.matchday} of 38</b></p>
-              <table class="responsive-table">
-                  <tbody>
-                    <tr>
-                      <td>${mtch.homeTeam.name}</td>  
-                      <td>${mtch.score.fullTime.homeTeam}</td>
-                      <td rowspan="2" class="center">${dmy(new Date(mtch.utcDate))}</td> 
-                    </tr>
-                    <tr>
-                      <td>${mtch.awayTeam.name}</td>
-                      <td>${mtch.score.fullTime.awayTeam}</td>
-                    </tr>
-                  </tbody>
-              </table>
+          </div>            
+           `;
+          });
+          matchHTML=`
+            <div class="row">
+                       `+matchDetail +`
             </div>
-          </div>
-        </div>
-        `;
-      });
-      matchHTML = `
-        <div class="row">
-                ` + matchDetail + `
-        </div>
-      `;
-      document.getElementById("body-content").innerHTML = matchHTML;
+          `;
+          // Sisipkan komponen card ke dalam elemen dengan id #content
+          document.getElementById("matches").innerHTML = matchHTML;
+          })
+        }
     })
-    .catch(error);
+ }
+    
+        fetch (`${base_url}competitions/${id_liga}/matches`, {
+            headers
+          })
+          .then(status)
+          .then(json)
+          .then(function(data){
+            console.log(data);
+            // Objek/array JavaScript dari response.json() masuk lewat data.
+          // Menyusun komponen card artikel secara dinamis
+          var matchDetail="";
+          data.matches.forEach(function(match){
+            if (match !== null ){
+              matchDetail +=`
+              <div class="col s12 m6">
+              <div class="card">
+                <div class="card-content" >
+                  <p><b>Matchday ${match.matchday} of 38</b></p>
+                  <table class="responsive-table">
+                      <tbody>
+                        <tr>
+                          <td>${match.homeTeam.name}</td>  
+                          <td>${match.score.fullTime.homeTeam}</td>
+                          <td rowspan="2" class="center">${dmy(new Date(match.utcDate))}</td> 
+                        </tr>
+                        <tr>
+                          <td>${match.awayTeam.name}</td>
+                          <td>${match.score.fullTime.awayTeam}</td>
+                        </tr>
+                      </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>    
+            `;
+            }
+          });
+          matchHTML=`
+            <div class="row">
+                  `+matchDetail+`
+            </div>
+          `
+          // Sisipkan komponen card ke dalam elemen dengan id #content
+          document.getElementById("matches").innerHTML = matchHTML;
+      })
+      .catch(error);
 }
 function dmy (date){
   return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;

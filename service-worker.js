@@ -7,6 +7,7 @@ var urlsToCache = [
 	'/detail.html',
 	'/fav.html',
 	'/navigasi.html',
+	'/matches.html',
 	'/push.json',
 	'/js/materialize.min.js',
 	'/js/api.js',

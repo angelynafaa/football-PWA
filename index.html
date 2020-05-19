@@ -14,15 +14,14 @@
   </head>
   <body>
     <!-- Navigasi -->
-    <nav class="teal lighten-1" role="navigation">
+    <nav class="red darken-4" role="navigation">
       <div class="nav-wrapper container">
-        <a href="index.html" class="brand-logo" id="logo-container"
+        <a href="/index.html" class="brand-logo" id="logo-container"
           >Yuk Ngebola</a
         >
         <a href="#" class="sidenav-trigger" data-target="nav-mobile">&#9776;</a>
-
         <ul class="topnav right hide-on-med-and-down">
-          <li><a href="fav.html">Tim Favorit</a></li>
+          <li><a href="/index.html">Home</a></li>
         </ul>
         <ul class="sidenav" id="nav-mobile"></ul>
       </div>
@@ -118,6 +117,8 @@ function urlBase64ToUint8Array(base64String) {
       // REQUEST API UNTUK PERTAMA KALI
       document.addEventListener("DOMContentLoaded", function() {
         getTeams();
+        getMatches();
+        
       });
     
     </script>
