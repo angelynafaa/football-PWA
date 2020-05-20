@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     function showAllFavourite() {
         dbGetAllFavourites().then(favourites => {
-        let listFavouritesInText = "";
+        var listFavouritesInText = "";
         favourites.forEach(fav => {
           listFavouritesInText += `
               <tr>
@@ -16,10 +16,10 @@ document.addEventListener("DOMContentLoaded", function() {
               `;
         });
         document.getElementById('teams').innerHTML = listFavouritesInText;
-        let removeButtons = document.querySelectorAll(".removeButton");
-        for (let button of removeButtons) {
+        var removeButtons = document.querySelectorAll(".removeButton");
+        for (var button of removeButtons) {
           button.addEventListener("click", function(event) {
-            let favId = event.target.id;
+            var favId = event.target.id;
             dbDeleteFavourite(favId).then(() => {
               showAllFavourite();
             });

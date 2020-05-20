@@ -129,32 +129,31 @@ function getTeamById() {
               </div>
               <div class="col s12 m8">
                 <table>
-                  <tbody>
-                    <tr>
-                      <th>Nama Tim</th>
-                      <td>${data.name}</td>
-                    </tr>
-                    <tr>
-                      <th>Nama Singkat</th>
-                      <td>${data.shortName ? data.shortName : "-"}</td>
-                    </tr>
-                    <tr>
-                      <th>Stadion</th>
-                      <td>${data.venue ? data.venue : "-"}</td>
-                    </tr>
-                    <tr>
-                      <th>Website</th>
-                      <td>${data.website ? data.website : "-"}</td>
-                    </tr>
-                    <tr>
-                      <th>Email</th>
-                      <td>${data.email ? data.email : "-"}</td>
-                    </tr>
-                    <tr>
-                      <th>Negara</th>
-                      <td>${data.area.name ? data.area.name : "-"}</td>
-                    </tr>
-                  </tbody>
+                <tbody>
+                <tr>
+                  <th>Team</th>
+                  <td>${data.name}</td>
+                </tr>
+                <tr>
+                  <th>Founded</th>
+                  <td>${data.founded}</td>
+                </tr>
+                  <th>Stadion</th>
+                  <td>${data.venue ? data.venue : "-"}</td>
+                </tr>
+                <tr>
+                  <th>Website</th>
+                  <td>${data.website ? data.website : "-"}</td>
+                </tr>
+                <tr>
+                  <th>ClubColors</th>
+                  <td>${data.clubColors ? data.clubColors : "-"}</td>
+                </tr>
+                <tr>
+                  <th>Negara</th>
+                  <td>${data.area.name ? data.area.name : "-"}</td>
+                </tr>
+              </tbody>
                 </table>
               </div>
             </div>
@@ -232,14 +231,13 @@ function getTeamById() {
             <table>
               <tbody>
                 <tr>
-                  <th>Nama Tim</th>
+                  <th>Team</th>
                   <td>${data.name}</td>
                 </tr>
                 <tr>
-                  <th>Nama Singkat</th>
-                  <td>${data.shortName ? data.shortName : "-"}</td>
+                  <th>Founded</th>
+                  <td>${data.founded}</td>
                 </tr>
-                <tr>
                   <th>Stadion</th>
                   <td>${data.venue ? data.venue : "-"}</td>
                 </tr>
@@ -248,8 +246,8 @@ function getTeamById() {
                   <td>${data.website ? data.website : "-"}</td>
                 </tr>
                 <tr>
-                  <th>Email</th>
-                  <td>${data.email ? data.email : "-"}</td>
+                  <th>ClubColors</th>
+                  <td>${data.clubColors ? data.clubColors : "-"}</td>
                 </tr>
                 <tr>
                   <th>Negara</th>

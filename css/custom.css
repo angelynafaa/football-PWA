@@ -8,6 +8,13 @@
     height: 100%;
     margin: auto;
   }
+  .p1 {
+    padding: 1rem;
+  }
+  
+  .p2 {
+    padding: 2rem;
+  }
   
   .mt-1 {
     margin-top: 1rem;
@@ -29,11 +36,4 @@
     margin-right: 2rem;
   }
   
-  .p1 {
-    padding: 1rem;
-  }
-  
-  .p2 {
-    padding: 2rem;
-  }
   
