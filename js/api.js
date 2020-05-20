@@ -354,7 +354,7 @@ function getMatches(){
           </div>            
            `;
           });
-          matchHTML=`
+         var matchHTML=`
             <div class="row">
                        `+matchDetail +`
             </div>
@@ -402,7 +402,7 @@ function getMatches(){
             `;
             }
           });
-          matchHTML=`
+         var matchHTML=`
             <div class="row">
                   `+matchDetail+`
             </div>

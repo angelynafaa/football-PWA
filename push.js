@@ -7,18 +7,18 @@ const vapidKeys = {
  
  
 webPush.setVapidDetails(
-   'mailto:example@yourdomain.org',
+   'angelyna826@gmail.com',
    vapidKeys.publicKey,
    vapidKeys.privateKey
 )
 var pushSubscription = {
-   "endpoint": "",
+   "endpoint": "https://fcm.googleapis.com/fcm/send/dPOjWYqZHYI:APA91bFtCU7Djwa-l716Gajnu4nl3F2YC6m0Tb9SIKOfcWE9PT1c-3T8VwA-0C9lRYhi5KBntm2JrSqN5mTNtPkuUeFjTCqnpReum6xYqb5tBdDxw4ReDekHsUbjji-39qgn4ei4b-fB",
    "keys": {
-       "p256dh": "",
-       "auth": ""
+       "p256dh": "BB7HZ2W4VdZVC0MLqMu3Sxi44yiIFeF5q+N7eT/SdAFKc7RIWUu1Em9aknj4gwpxmogI0Yyc2MkHOAPzLSMrV7A=",
+       "auth": "u+zjczSpQ7O0RxBsqxLloQ=="
    }
 };
-var payload = 'Ayo tambahkan tim f  avorit kamu!';
+var payload = 'lets add your favourite teams!';
  
 var options = {
    gcmAPIKey: '586657408159',
