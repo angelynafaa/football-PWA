@@ -1,31 +1,29 @@
 var webPush = require('web-push');
- 
 const vapidKeys = {
-   "publicKey": "BIaI7bZukSpJMWxZtmlSlotn5aXR-K96zR3V9ilcc2m4O3kebCZtylDVgCeQHU3ji6gLcDsTSW_vca8COZWhhw0",
-   "privateKey": "CqGec3eySFQ20prEjgs3gDBWSGsyNMY5m9pMRb9bF4w"
+    "publicKey": "BH2f8yIc39hMPM60PxkP97FxT5r-EQxpvsht-rJiPhNYIE-zptYg_RmyjgmH2tcw4x86eNPc4wGwGPo0DJsEZ5M",
+    "privateKey": "dKlC4TQ0cs5KpebLZZJ0qmZgjVdzbnoglSj301cybGc"
 };
  
  
 webPush.setVapidDetails(
-   'angelyna826@gmail.com',
-   vapidKeys.publicKey,
-   vapidKeys.privateKey
+    'angelyna826@gmail.com',
+    vapidKeys.publicKey,
+    vapidKeys.privateKey
 )
 var pushSubscription = {
-   "endpoint": "https://fcm.googleapis.com/fcm/send/dPOjWYqZHYI:APA91bFtCU7Djwa-l716Gajnu4nl3F2YC6m0Tb9SIKOfcWE9PT1c-3T8VwA-0C9lRYhi5KBntm2JrSqN5mTNtPkuUeFjTCqnpReum6xYqb5tBdDxw4ReDekHsUbjji-39qgn4ei4b-fB",
-   "keys": {
-       "p256dh": "BB7HZ2W4VdZVC0MLqMu3Sxi44yiIFeF5q+N7eT/SdAFKc7RIWUu1Em9aknj4gwpxmogI0Yyc2MkHOAPzLSMrV7A=",
-       "auth": "u+zjczSpQ7O0RxBsqxLloQ=="
-   }
+    "endpoint": "https://fcm.googleapis.com/fcm/send/fEEB-ZWrdv4:APA91bHuWP-1ge3uM5lpmWYkyRW5SCrpNQPxTS5WFMfK8ucset0_jfE12C-MCXxs-EvvFgcP5Q27y1TeDvBlWGS0i7Kg4NEtiFroVZaq7PS_fN1rLPao2fRM7hoxZirH7WMWRxMu7YJb",
+    "keys": {
+        "p256dh": "BB50PcrOSv3YlIISpIZ27RPqyD+pFVq6+D4gCFRX+nq+3pGP6sEUI4p/xNx9VsQU0JAKRYdUURcFxfjmubqcPdY=",
+        "auth": "NrxP7qYY0PsEXskY+IB03A=="
+    }
 };
 var payload = 'lets add your favourite teams!';
- 
 var options = {
-   gcmAPIKey: '586657408159',
-   TTL: 60
+    gcmAPIKey: '586657408159',
+    TTL: 60
 };
 webPush.sendNotification(
-   pushSubscription,
-   payload,
-   options
+    pushSubscription,
+    payload,
+    options
 );

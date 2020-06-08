@@ -1,77 +1,64 @@
-const idbPromised =idb.open("favourites", 1 , upgradeDb =>{
-    if(!upgradeDb.objectStoreNames.contains("favor")){
-        upgradeDb.createObjectStore("favor", {keyPath: "favId"});
-    }
+var dbPromised = idb.open("first-pwa", 1, function(upgradeDb) {
+  var articlesObjectStore = upgradeDb.createObjectStore("teams", {
+    keyPath: "id"
+  });
+  articlesObjectStore.createIndex("name", "name", {
+    unique: false
+  });
 });
 
-const dbGetFavourite = favId => {
-    return new Promise((resolve, reject) => {
-      idbPromised
-        .then(db => {
-          const transaction = db.transaction("favor", `readonly`);
-          return transaction.objectStore("favor").get(favId);
-        })
-        .then(data => {
-          if (data !== undefined) {
-              resolve(data);
-            } else {
-              reject(new Error("Favorite not Found"));
-            }
-        });
-    });
-  };
+function saveTeam(data) {
+  dbPromised
+    .then(function(db) {
+      var tx = db.transaction('teams', 'readwrite');
+      var store = tx.objectStore('teams');
+      console.log(data);
+      store.put(data);
+      return tx.complete;
+    })
+    .then(function() {
+      console.log("Artikel berhasil di simpan.");
+    })
+    
+}
 
-  const dbGetAllFavourites = () => {
-    return new Promise((resolve, reject) => {
-      idbPromised
-        .then(db => {
-          const transaction = db.transaction("favor", `readonly`);
-          return transaction.objectStore("favor").getAll();
-        })
-        .then(data => {
-          if (data !== undefined) {
-            resolve(data);
-          } else {
-            reject(new Error("Favorite not Found"));
-          }
-        });
-    });
-  };
+function getAll() {
+  return new Promise(function(resolve, reject) {
+    dbPromised
+      .then(function(db) {
+        var tx = db.transaction("teams", "readonly");
+        var store = tx.objectStore("teams");
+        return store.getAll();
+      })
+      .then(function(data) {
+        resolve(data);
+      });
+  });
+}
 
-  const dbInsertFavourite = (fav) => {
-    return new Promise((resolve, reject) => {
-      idbPromised
-        .then(db => {
-          const transaction = db.transaction("favor", `readwrite`);
-          transaction.objectStore("favor").add(fav);
-          return transaction;
-        })
-        .then(transaction => {
-          if (transaction.complete) {
-            resolve(true);
-          } else {
-            reject(new Error(transaction.onerror));
-          }
-        });
-    });
-  }; 
+function getSavedById(idParam) {
+  return new Promise(function(resolve, reject) {
+    dbPromised
+      .then(function(db) {
+        var tx = db.transaction("teams", "readonly");
+        var store = tx.objectStore("teams");
+        return store.get(parseInt(idParam));
+      })
+      .then(function(datat) {
+        resolve(datat);
+      });
+  });
+}
 
-  const dbDeleteFavourite = favId => {
-    return new Promise((resolve, reject) => {
-      idbPromised
-        .then(db => {
-          const transaction = db.transaction("favor", `readwrite`);
-          transaction.objectStore("favor").delete( parseInt(favId) );
-          return transaction;
-        })
-        .then(transaction => {
-          console.log(transaction)
-          if (transaction.complete) {
-            resolve(true);
-          } else {
-            reject(new Error(transaction.onerror));
-          }
-        });
-    });
-  };
-  
+function delTeam(idpar) {
+  dbPromised
+    .then(function(db) {
+      var tx = db.transaction("teams", "readwrite");
+      var store = tx.objectStore("teams");
+      store.delete(parseInt(idpar));
+      return tx.complete;
+    })
+    .then(function() {
+      console.log("Artikel berhasil dihapus.");
+    })
+}

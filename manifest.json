@@ -1,35 +1,32 @@
 {
-    "name": "Yuk Ngebola",
-    "short_name": "YukNgebola",
-    "description": "Web Submission MPWA-2",
+    "name": "English Premier League",
+    "short_name": "EPL",
+    "description": "English Premier League",
     "start_url": "/index.html",
     "display": "standalone",
-    "background_color": "#00897B",
-    "theme_color": "#00897B",
+    "background_color": "#00796b",
+    "theme_color": "#00796b",
     "gcm_sender_id": "586657408159",
     "icons": [
         {
-            "src": "image/football-192.png ",
+            "src": "/image/football-192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "image/football-512.png",
+            "src": "/image/football-512.png",
             "sizes": "512x512",
             "type": "image/png"
-
         },
         {
-            "src": "image/football-144.png",
+            "src": "/image/football-144.png",
             "sizes": "144x144",
             "type": "image/png"
-
         },
         {
-            "src": "image/football-96.png",
+            "src": "/image/football-96.png",
             "sizes": "96x96",
             "type": "image/png"
-
         }
     ]
 }
