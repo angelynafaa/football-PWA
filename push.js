@@ -11,10 +11,10 @@ webPush.setVapidDetails(
     vapidKeys.privateKey
 )
 var pushSubscription = {
-    "endpoint": "https://fcm.googleapis.com/fcm/send/fEEB-ZWrdv4:APA91bHuWP-1ge3uM5lpmWYkyRW5SCrpNQPxTS5WFMfK8ucset0_jfE12C-MCXxs-EvvFgcP5Q27y1TeDvBlWGS0i7Kg4NEtiFroVZaq7PS_fN1rLPao2fRM7hoxZirH7WMWRxMu7YJb",
+    "endpoint": "https://fcm.googleapis.com/fcm/send/dijBJ2_vE-k:APA91bH0AE7whT9VKLSUZWepm44jEGhzs8l5OFMSbyH9NijbSzdQvy1TcDoPsakc4YX-T8TPwZCFR2eXhLnUJdgd0u18FQl5aXpbDE-Yk3I6MRKhM9zPEJrGP2xJXO1yKCzsgzuOmt_Z",
     "keys": {
-        "p256dh": "BB50PcrOSv3YlIISpIZ27RPqyD+pFVq6+D4gCFRX+nq+3pGP6sEUI4p/xNx9VsQU0JAKRYdUURcFxfjmubqcPdY=",
-        "auth": "NrxP7qYY0PsEXskY+IB03A=="
+        "p256dh": "BBJuZCx1vkXEnazwJ+uSLVx43MJXafUZsLmhtE+6AXAOJtUWhkMxgkiFgeeCFrYp4UUjGvAnfyYRLN+vE65CL7g=",
+        "auth": "1FnNVIiMd/9rQJvVW5k2qw=="
     }
 };
 var payload = 'lets add your favourite teams!';
